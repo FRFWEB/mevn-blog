@@ -1,7 +1,8 @@
 <template>
     <div>
-        <button type="button" class="btn btn-primary btn-new-post" data-bs-toggle="modal" data-bs-target="#modalPost"></button>
-
+        <div class="position-relative content-sub-menu">
+            <button type="button" class="btn btn-primary btn-sub-menu" id="submenu-item" data-bs-toggle="modal" data-bs-target="#modalPost">1</button>
+        </div>
         <!-- Modal -->
         <div class="modal fade" id="modalPost" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog">
@@ -77,69 +78,44 @@ export default {
 }
 </script>
 <style scoped>
-textarea{
-    resize: none;
-    height: 200px;
-}
-    .btn-new-post{
-    width: 80px;
-    height: 80px;
-    position: fixed;
-    bottom: 20px;
-    right: 30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    .btn-sub-menu {
+        right: 53px;
+        bottom: 40px;
+        position: fixed;
+        z-index: -1;
+        transition: all ease-in-out 0.5s;
+        width: 50px;
+        height: 50px;
     }
 
-    .btn-new-post::after{
-        content: "";
-        border: 4px solid #fff;
-        border-left: transparent;
-        padding: 17px;
-        border-right: transparent;
-        position: absolute;
-        border-bottom: transparent;
-        top: 39px;
-        transition: all ease-in-out 0.3s;
+    .content-sub-menu:nth-child(1) .open-item{
+        position: fixed;
+        right: 35px;
+        bottom: 125px;
+        width: 50px;
+        height: 50px;
+        z-index: 1;
     }
-    .btn-new-post::before{
-        content: "";
-        border: 4px solid #fff;
-        border-top: transparent;
-        padding: 15px;
-        border-bottom: transparent;
-        border-right: transparent;
+    .content-sub-menu:nth-child(1) .open-item:hover::after{
+        content: 'New Post';
+        color: #fff;
+        background: #333;
         position: absolute;
-        left: 37px;
-        transition: all ease-in-out 0.3s;
+        top: -50px;
+        padding: 4px 10px;
+        left: -25px;
+        width: 100px;
     }
-    /*
-    .btn-new-post:hover::after{
-        content: "";
-        border: 4px solid #fff;
-        border-left: transparent;
-        padding: 20px;
-        border-right: transparent;
+    .content-sub-menu:nth-child(1) .open-item:hover::before{
+        content: '';
+        border-bottom:15px solid transparent;
+        border-right: 15px solid transparent;
+        border-top: 15px solid #000;
+        border-left: 15px solid transparent;
         position: absolute;
-        border-bottom: transparent;
-        top: 32px;
-        transform: rotate(38deg);
+        width: 20px;
+        height: 20px;
+        top: -20px;
         left: 5px;
-       
     }
-    .btn-new-post:hover::before{
-        content: "";
-        border: 4px solid #fff;
-        border-top: transparent;
-        padding: 20px;
-        border-bottom: transparent;
-        border-right: transparent;
-        position: absolute;
-        left: 30px;
-        transform: rotate(45deg);
-        top: 32px;
-        
-    }
-    */
 </style>
